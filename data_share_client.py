@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 import subprocess as sp
-
+import os
+service_check=os.system("service --status-all | grep nfs-common")
+if service_check!=0:
+    os.system("sudo apt-get install nfs-common")
 
 inp = input('Enter the ip address of the server : ')
 host = inp+':/shome'
